@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tất cả sách — ITBook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="../css/style4.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="../index.html" class="nav-logo">IT<span>Book</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Trang chủ</a></li>
+    <li><a href="books.html" class="active">Sách</a></li>
+    <li><a href="categories.html">Danh mục</a></li>
+    <li><a href="resources.html">Tài nguyên</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">Giới thiệu</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-login" onclick="location.href='auth.html'">👤 Đăng nhập</button>
+      <button class="btn-cart" onclick="location.href='cart.html'">
+      🛒 Giỏ hàng <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <button class="btn-dark-toggle" id="themeToggle">☀️</button>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="../index.html">Trang chủ</a>
+    <span>/</span>
+    <span>Sách</span>
+  </div>
+  <h1 class="page-title">Kho sách <em>IT</em></h1>
+  <p class="page-sub">Khám phá hơn 500+ đầu sách lập trình và công nghệ được chọn lọc kỹ lưỡng</p>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="main-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Categories -->
+    <div class="filter-section">
+      <div class="filter-title">Danh mục</div>
+      <div class="cat-list" id="catList">
+        <div class="cat-item active" data-cat="all" onclick="selectCat(this,'all')">
+          <div class="cat-item-left"><span class="cat-icon">📚</span> Tất cả</div>
+          <span class="cat-count">24</span>
+        </div>
+        <div class="cat-item" data-cat="web" onclick="selectCat(this,'web')">
+          <div class="cat-item-left"><span class="cat-icon">🌐</span> Web Dev</div>
+          <span class="cat-count">6</span>
+        </div>
+        <div class="cat-item" data-cat="python" onclick="selectCat(this,'python')">
+          <div class="cat-item-left"><span class="cat-icon">🐍</span> Python</div>
+          <span class="cat-count">5</span>
+        </div>
+        <div class="cat-item" data-cat="ai" onclick="selectCat(this,'ai')">
+          <div class="cat-item-left"><span class="cat-icon">🤖</span> AI / ML</div>
+          <span class="cat-count">4</span>
+        </div>
+        <div class="cat-item" data-cat="db" onclick="selectCat(this,'db')">
+          <div class="cat-item-left"><span class="cat-icon">🗄️</span> Cơ sở dữ liệu</div>
+          <span class="cat-count">3</span>
+        </div>
+        <div class="cat-item" data-cat="network" onclick="selectCat(this,'network')">
+          <div class="cat-item-left"><span class="cat-icon">🔒</span> Mạng & Bảo mật</div>
+          <span class="cat-count">3</span>
+        </div>
+        <div class="cat-item" data-cat="data" onclick="selectCat(this,'data')">
+          <div class="cat-item-left"><span class="cat-icon">📊</span> Data Science</div>
+          <span class="cat-count">3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Price -->
+    <div class="filter-section">
+      <div class="filter-title">Khoảng giá (₫)</div>
+      <div class="price-range">
+        <div class="price-inputs">
+          <input class="price-input" type="number" id="priceMin" placeholder="Từ" value="0" min="0" />
+          <span class="price-sep">—</span>
+          <input class="price-input" type="number" id="priceMax" placeholder="Đến" value="500000" min="0" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Rating -->
+    <div class="filter-section">
+      <div class="filter-title">Đánh giá</div>
+      <div class="rating-list" id="ratingList">
+        <div class="rating-row active" data-rating="0" onclick="selectRating(this,0)">
+          <span class="stars-small">★★★★★</span>
+          <span class="rating-label">Tất cả</span>
+        </div>
+        <div class="rating-row" data-rating="4.5" onclick="selectRating(this,4.5)">
+          <span class="stars-small">★★★★★</span>
+          <span class="rating-label">4.5 trở lên</span>
+        </div>
+        <div class="rating-row" data-rating="4" onclick="selectRating(this,4)">
+          <span class="stars-small">★★★★☆</span>
+          <span class="rating-label">4.0 trở lên</span>
+        </div>
+        <div class="rating-row" data-rating="3" onclick="selectRating(this,3)">
+          <span class="stars-small">★★★☆☆</span>
+          <span class="rating-label">3.0 trở lên</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="filter-section">
+      <div class="filter-actions">
+        <button class="btn-apply" onclick="applyFilters()">Áp dụng</button>
+        <button class="btn-reset" onclick="resetFilters()">Reset</button>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="content-area">
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="search-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" id="searchInput" placeholder="Tìm theo tên sách, tác giả..." oninput="doSearch()" />
+      </div>
+      <select class="sort-select" id="sortSelect" onchange="doSearch()">
+        <option value="default">Mặc định</option>
+        <option value="price-asc">Giá: Thấp → Cao</option>
+        <option value="price-desc">Giá: Cao → Thấp</option>
+        <option value="rating">Đánh giá cao nhất</option>
+        <option value="reviews">Nhiều đánh giá nhất</option>
+        <option value="name">Tên A → Z</option>
+      </select>
+      <div class="view-toggle">
+        <button class="view-btn active" id="gridBtn" onclick="setView('grid')" title="Lưới">⊞</button>
+        <button class="view-btn" id="listBtn" onclick="setView('list')" title="Danh sách">☰</button>
+      </div>
+    </div>
+
+    <!-- Results meta -->
+    <div class="results-meta">
+      <div class="results-count">Hiển thị <strong id="resultCount">0</strong> sách</div>
+      <div class="active-filters" id="activeFilters"></div>
+    </div>
+
+    <!-- Grid -->
+    <div class="books-grid" id="booksGrid"></div>
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination"></div>
+  </div>
+
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script src="../js/lib4.js"></script>
+</body>
+</html>

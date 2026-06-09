@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Về chúng tôi — ITBook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="../css/style5.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">IT<span>Book</span></div>
+  <ul class="nav-links">
+    <li><a href="../index.html">Trang chủ</a></li>
+    <li><a href="books.html">Sách</a></li>
+    <li><a href="categories.html">Danh mục</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html" class="active">Về chúng tôi</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-login" onclick="location.href='auth.html'">👤 Đăng nhập</button>
+      <button class="btn-cart" onclick="location.href='cart.html'">
+      🛒 Giỏ hàng <div class="cart-count" id="cartCount">0</div>
+    </button>
+    <button class="btn-dark-toggle" id="themeToggle">☀️</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🇻🇳 Made in Vietnam</div>
+  <h1 class="hero-title">Kiến thức IT <em>chất lượng</em> cho mọi lập trình viên</h1>
+  <p class="hero-desc">ITBook được xây dựng bởi những người đam mê công nghệ, với sứ mệnh đưa tri thức lập trình tốt nhất đến tay người học Việt Nam.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hs-number" style="color:var(--accent)">500+</div><div class="hs-label">Đầu sách</div></div>
+    <div class="hero-stat"><div class="hs-number" style="color:var(--accent2)">15,000+</div><div class="hs-label">Khách hàng</div></div>
+    <div class="hero-stat"><div class="hs-number">98%</div><div class="hs-label">Hài lòng</div></div>
+    <div class="hero-stat"><div class="hs-number">5</div><div class="hs-label">Năm kinh nghiệm</div></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- MISSION -->
+  <div class="fade-in">
+    <div class="section-label">Sứ mệnh</div>
+    <h2 class="section-title">Tại sao ITBook tồn tại?</h2>
+    <p class="section-sub">Chúng tôi tin rằng cuốn sách tốt đúng lúc có thể thay đổi cả sự nghiệp của một lập trình viên.</p>
+    <div class="mission-grid">
+      <div class="mission-card">
+        <div class="mc-icon">📚</div>
+        <div class="mc-title">Tuyển chọn kỹ lưỡng</div>
+        <div class="mc-text">Mỗi cuốn sách trên ITBook đều được đội ngũ kỹ sư giàu kinh nghiệm đọc và đánh giá trước khi đưa vào danh mục. Không có sách kém chất lượng.</div>
+      </div>
+      <div class="mission-card">
+        <div class="mc-icon">🎯</div>
+        <div class="mc-title">Hỗ trợ học tập</div>
+        <div class="mc-text">Không chỉ bán sách — chúng tôi cung cấp lộ trình học, blog kiến thức, tài nguyên miễn phí và cộng đồng để bạn không học một mình.</div>
+      </div>
+      <div class="mission-card">
+        <div class="mc-icon">🚀</div>
+        <div class="mc-title">Cập nhật liên tục</div>
+        <div class="mc-text">Công nghệ thay đổi từng ngày. Chúng tôi cập nhật danh mục sách mỗi tháng để đảm bảo bạn luôn có những kiến thức mới nhất.</div>
+      </div>
+      <div class="mission-card">
+        <div class="mc-icon">🤝</div>
+        <div class="mc-title">Cộng đồng trước tiên</div>
+        <div class="mc-text">ITBook được xây dựng từ phản hồi của cộng đồng. Mọi tính năng, mọi cuốn sách đều xuất phát từ nhu cầu thực tế của người dùng.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <div class="story-section fade-in">
+    <div class="section-label">Câu chuyện</div>
+    <h2 class="section-title">Hành trình của ITBook</h2>
+    <div class="story-layout">
+      <div class="story-text">
+        <p>ITBook bắt đầu từ một nhóm nhỏ <strong>kỹ sư phần mềm tại TP.HCM</strong> với một vấn đề chung: tìm sách kỹ thuật chất lượng bằng tiếng Anh tại Việt Nam rất khó khăn và tốn kém.</p>
+        <p>Năm 2020, trong giai đoạn giãn cách xã hội, chúng tôi quyết định tập hợp những cuốn sách IT tốt nhất, tạo một nền tảng có thể <strong>giúp mọi lập trình viên Việt Nam tiếp cận tri thức</strong> dễ dàng hơn.</p>
+        <p>Từ 50 đầu sách ban đầu và 100 đơn hàng đầu tiên, ITBook đã phát triển thành một cộng đồng với <strong>hơn 15,000 khách hàng trên khắp Việt Nam</strong> — nhiều người trong số đó đã dùng sách từ ITBook để thay đổi sự nghiệp của mình.</p>
+      </div>
+      <div class="story-timeline">
+        <div class="tl-item">
+          <div class="tl-dot-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div><div class="tl-year">2020</div><div class="tl-title">ITBook ra đời</div><div class="tl-desc">50 đầu sách, website đầu tiên ra mắt trong mùa dịch.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div><div class="tl-year">2021</div><div class="tl-title">Ra mắt Blog & Community</div><div class="tl-desc">Mở thêm kênh blog kỹ thuật và group Facebook 5,000 thành viên.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div><div class="tl-year">2022</div><div class="tl-title">Mở rộng danh mục</div><div class="tl-desc">200+ đầu sách, thêm danh mục Data Science và Cybersecurity.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div><div class="tl-year">2023</div><div class="tl-title">10,000 khách hàng</div><div class="tl-desc">Vượt mốc 10,000 đơn hàng thành công, ra mắt chương trình loyalty.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot-col"><div class="tl-dot" style="background:var(--accent2)"></div></div>
+          <div><div class="tl-year" style="color:var(--accent2)">2025</div><div class="tl-title">Ra mắt nền tảng mới</div><div class="tl-desc">Giao diện hoàn toàn mới, ebook đang phát triển, 500+ đầu sách.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <div class="fade-in">
+    <div class="section-label">Đội ngũ</div>
+    <h2 class="section-title">Những người đứng sau ITBook</h2>
+    <p class="section-sub">Chúng tôi là những lập trình viên, nhà giáo dục và người yêu sách — cùng chung một sứ mệnh.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">👨‍💻</div>
+        <div class="team-name">Nguyễn Hoàng Mỹ</div>
+        <div class="team-role">Sinh viên trường Đại học Trà Vinh</div>
+        <div class="team-bio">Chuyên môn kỹ thuật phần mềm.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">👩‍💻</div>
+        <div class="team-name">Phạm Tuấn Khoa</div>
+        <div class="team-role">Sinh viên trường Đại học Trà Vinh</div>
+        <div class="team-bio">Chuyên môn kỹ thuật phần mềm.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">🧑‍🎨</div>
+        <div class="team-name">Nguyễn Tấn Trường</div>
+        <div class="team-role">Sinh viên trường Đại học Trà Vinh</div>
+        <div class="team-bio">Chuyên môn kỹ thuật phần mềm.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div class="fade-in">
+    <div class="section-label">Giá trị</div>
+    <h2 class="section-title">Những gì chúng tôi tin tưởng</h2>
+    <div class="values-grid">
+      <div class="value-card"><div class="value-icon">🎯</div><div class="value-title">Chất lượng trên số lượng</div><div class="value-text">500 cuốn sách được chọn lọc còn hơn 5,000 cuốn kém chất lượng.</div></div>
+      <div class="value-card"><div class="value-icon">🌱</div><div class="value-title">Học tập suốt đời</div><div class="value-text">Công nghệ không ngừng thay đổi — chúng tôi luôn cập nhật cùng bạn.</div></div>
+      <div class="value-card"><div class="value-icon">🤝</div><div class="value-title">Cộng đồng là tài sản</div><div class="value-text">Mỗi khách hàng là một thành viên trong gia đình ITBook.</div></div>
+      <div class="value-card"><div class="value-icon">💡</div><div class="value-title">Minh bạch</div><div class="value-text">Chúng tôi nói thẳng: sách nào tốt, sách nào chỉ ổn — không quảng cáo sai sự thật.</div></div>
+      <div class="value-card"><div class="value-icon">🚀</div><div class="value-title">Hỗ trợ hết mình</div><div class="value-text">Từ tư vấn chọn sách đến giao hàng và đổi trả — chúng tôi luôn ở đây.</div></div>
+      <div class="value-card"><div class="value-icon">🇻🇳</div><div class="value-title">Tự hào Made in VN</div><div class="value-text">Xây dựng bởi người Việt, cho người Việt, hiểu người học Việt cần gì.</div></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box fade-in">
+    <div class="cta-title">Bắt đầu hành trình học tập ngay hôm nay 🚀</div>
+    <div class="cta-sub">Khám phá 500+ đầu sách IT được tuyển chọn kỹ lưỡng dành riêng cho lập trình viên Việt Nam.</div>
+    <div class="cta-btns">
+      <button class="btn-cta-primary" onclick="location.href='books.html'">Xem kho sách →</button>
+      <button class="btn-cta-secondary" onclick="location.href='contact.html'">Liên hệ chúng tôi</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="../js/lib5.js"></script>
+</body>
+</html>

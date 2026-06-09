@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi tiết sách — ITBook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="../css/style2.css" rel="stylesheet"/>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">IT<span>Book</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Trang chủ</a></li>
+    <li><a href="books.html">Sách</a></li>
+    <li><a href="categories.html">Danh mục</a></li>
+    <li><a href="resources.html">Tài nguyên</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">Giới thiệu</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-login" onclick="location.href='auth.html'">👤 Đăng nhập</button>
+      <button class="btn-cart" onclick="location.href='cart.html'">🛒 Giỏ hàng <span class="cart-count" id="cartCount">0</span></button>
+    <button class="btn-dark-toggle" id="themeToggle">☀️</button>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">Trang chủ</a><span>/</span>
+  <a href="books.html">Sách</a><span>/</span>
+  <span id="bcTitle">Deep Learning with Python</span>
+</div>
+
+<div class="main-wrap">
+  <div class="book-hero">
+
+    <!-- Cover -->
+    <div class="cover-col">
+      <div class="book-cover-big" id="bookCover">
+        <span id="bookEmoji" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;display:flex;align-items:center;justify-content:center;font-size:5rem;">🤖</span>
+        <span class="cover-badge" id="bookBadge">Bestseller</span>
+      </div>
+      <div class="cover-actions">
+        <button class="btn-buy-now" onclick="buyNow()">Mua ngay</button>
+        <button class="btn-add-cart-big" id="mainCartBtn" onclick="addToCart()">🛒 Thêm vào giỏ hàng</button>
+        <button class="btn-wishlist">♡ Lưu vào danh sách yêu thích</button>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="info-col">
+      <div class="book-cats">
+        <span class="cat-pill" id="bookCat">AI / ML</span>
+        <span class="cat-pill">Lập trình</span>
+      </div>
+      <h1 class="book-main-title" id="bookTitle">Deep Learning with Python</h1>
+      <p class="book-subtitle" id="bookSubtitle">Hướng dẫn thực hành deep learning từ A–Z với Keras và TensorFlow</p>
+
+      <div class="rating-bar">
+        <div class="stars-big" id="bookStars">★★★★★</div>
+        <div class="rating-score" id="bookRating">4.9</div>
+        <span class="rating-sep">·</span>
+        <div class="rating-detail" id="bookReviews">128 đánh giá</div>
+        <span class="rating-sep">·</span>
+        <div class="rating-detail">1.2k lượt xem</div>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-card"><div class="meta-label">Tác giả</div><div class="meta-value" id="bookAuthor">François Chollet</div></div>
+        <div class="meta-card"><div class="meta-label">Năm XB</div><div class="meta-value">2021</div></div>
+        <div class="meta-card"><div class="meta-label">Ngôn ngữ</div><div class="meta-value">Tiếng Anh</div></div>
+        <div class="meta-card"><div class="meta-label">Số trang</div><div class="meta-value">504 trang</div></div>
+        <div class="meta-card"><div class="meta-label">Nhà XB</div><div class="meta-value">Manning</div></div>
+        <div class="meta-card"><div class="meta-label">Định dạng</div><div class="meta-value">PDF + EPUB</div></div>
+      </div>
+
+      <div class="price-block">
+        <div class="price-main" id="bookPrice">285.000₫</div>
+        <div class="price-old" id="bookOldPrice">350.000₫</div>
+        <div class="price-save">Tiết kiệm 19%</div>
+      </div>
+
+      <div class="qty-wrap">
+        <span class="qty-label">Số lượng:</span>
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <input class="qty-num" type="text" id="qtyInput" value="1" readonly />
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+        <span class="stock-badge"><span class="stock-dot"></span> Còn hàng</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(this,'desc')">Mô tả</button>
+    <button class="tab-btn" onclick="switchTab(this,'toc')">Mục lục</button>
+    <button class="tab-btn" onclick="switchTab(this,'reviews')">Đánh giá (128)</button>
+  </div>
+
+  <!-- Description -->
+  <div class="tab-panel active" id="tab-desc">
+    <div class="desc-text">
+      <p><strong style="color:var(--text)">Deep Learning with Python</strong> là cuốn sách được viết bởi François Chollet — tác giả của thư viện Keras — người đã dành nhiều năm nghiên cứu và phát triển các kỹ thuật deep learning tiên tiến tại Google.</p>
+      <p>Cuốn sách cung cấp một hành trình toàn diện từ những khái niệm cơ bản nhất của machine learning cho đến các kỹ thuật deep learning nâng cao, tất cả đều được trình bày thông qua các ví dụ thực tế với Keras và TensorFlow 2.</p>
+      <p>Bạn sẽ học cách xây dựng mạng neural, làm việc với dữ liệu hình ảnh, văn bản, chuỗi thời gian và nhiều hơn nữa — đây là tài liệu không thể thiếu cho bất kỳ ai muốn bước chân vào thế giới AI.</p>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div class="tab-panel" id="tab-toc">
+    <ul class="toc-list">
+      <li class="toc-item"><span class="toc-num">01</span> Giới thiệu về Deep Learning và AI</li>
+      <li class="toc-item"><span class="toc-num">02</span> Nền tảng toán học của Neural Networks</li>
+      <li class="toc-item"><span class="toc-num">03</span> Bắt đầu với Keras và TensorFlow</li>
+      <li class="toc-item"><span class="toc-num">04</span> Phân loại và Hồi quy — Bài toán nền tảng</li>
+      <li class="toc-item"><span class="toc-num">05</span> Machine Learning cơ bản — Quy trình & Thực hành</li>
+      <li class="toc-item"><span class="toc-num">06</span> Convolutional Neural Networks và Thị giác máy tính</li>
+      <li class="toc-item"><span class="toc-num">07</span> Recurrent Neural Networks và Xử lý chuỗi</li>
+      <li class="toc-item"><span class="toc-num">08</span> Xử lý Ngôn ngữ Tự nhiên với Transformers</li>
+      <li class="toc-item"><span class="toc-num">09</span> Generative Deep Learning — GANs, VAEs</li>
+      <li class="toc-item"><span class="toc-num">10</span> Deep Learning nâng cao — Best Practices</li>
+      <li class="toc-item"><span class="toc-num">11</span> Deploy mô hình AI vào thực tế</li>
+      <li class="toc-item"><span class="toc-num">12</span> Xu hướng & Tương lai của Deep Learning</li>
+    </ul>
+  </div>
+
+  <!-- Reviews -->
+  <div class="tab-panel" id="tab-reviews">
+    <div class="review-summary">
+      <div class="review-score-big">
+        <div class="score-num">4.9</div>
+        <div class="score-stars">★★★★★</div>
+        <div class="score-total">128 đánh giá</div>
+      </div>
+      <div class="score-bars">
+        <div class="score-bar-row"><span class="bar-label">5</span><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div><span class="bar-count">105</span></div>
+        <div class="score-bar-row"><span class="bar-label">4</span><div class="bar-track"><div class="bar-fill" style="width:12%"></div></div><span class="bar-count">15</span></div>
+        <div class="score-bar-row"><span class="bar-label">3</span><div class="bar-track"><div class="bar-fill" style="width:4%"></div></div><span class="bar-count">5</span></div>
+        <div class="score-bar-row"><span class="bar-label">2</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span class="bar-count">2</span></div>
+        <div class="score-bar-row"><span class="bar-label">1</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span class="bar-count">1</span></div>
+      </div>
+    </div>
+
+    <div class="reviews-list" id="reviewsList">
+      <div class="review-card">
+        <div class="review-header"><span class="reviewer-name">Nguyễn Minh Khoa</span><span class="review-date">12 tháng 5, 2025</span></div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Cuốn sách tốt nhất về deep learning mình từng đọc. François Chollet giải thích rất rõ ràng, từ lý thuyết đến thực hành đều có ví dụ minh hoạ cụ thể. Sau khi đọc xong mình đã có thể tự xây dựng mô hình CNN để nhận dạng hình ảnh.</div>
+        <div class="review-helpful"><button class="helpful-btn">👍 Hữu ích (24)</button><button class="helpful-btn">Chia sẻ</button></div>
+      </div>
+      <div class="review-card">
+        <div class="review-header"><span class="reviewer-name">Trần Thị Lan</span><span class="review-date">3 tháng 4, 2025</span></div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Đây là sách bắt buộc phải đọc nếu muốn học AI/ML. Cách viết rất thực tế, không dài dòng lý thuyết. Đặc biệt phần về Transformers và NLP giải thích rất dễ hiểu.</div>
+        <div class="review-helpful"><button class="helpful-btn">👍 Hữu ích (18)</button><button class="helpful-btn">Chia sẻ</button></div>
+      </div>
+      <div class="review-card">
+        <div class="review-header"><span class="reviewer-name">Lê Văn Đức</span><span class="review-date">20 tháng 3, 2025</span></div>
+        <div class="review-stars">★★★★☆</div>
+        <div class="review-text">Nội dung rất tốt, phù hợp cho người đã biết Python cơ bản muốn chuyển sang học ML. Một điểm trừ nhỏ là một số phần nâng cao cần kiến thức toán khá sâu, nhưng nhìn chung là rất đáng mua.</div>
+        <div class="review-helpful"><button class="helpful-btn">👍 Hữu ích (9)</button><button class="helpful-btn">Chia sẻ</button></div>
+      </div>
+    </div>
+
+    <!-- Review Form -->
+    <div class="review-form">
+      <div class="form-title">✍️ Viết đánh giá của bạn</div>
+      <div class="star-pick" id="starPick">
+        <span onclick="pickStar(1)">★</span><span onclick="pickStar(2)">★</span>
+        <span onclick="pickStar(3)">★</span><span onclick="pickStar(4)">★</span><span onclick="pickStar(5)">★</span>
+      </div>
+      <input class="form-input" type="text" id="reviewName" placeholder="Tên của bạn" />
+      <textarea class="form-textarea" id="reviewText" placeholder="Chia sẻ cảm nhận về cuốn sách..."></textarea>
+      <button class="btn-submit-review" onclick="submitReview()">Gửi đánh giá</button>
+    </div>
+  </div>
+
+  <!-- Related Books -->
+  <div class="related-section">
+    <div class="related-title">Sách liên quan</div>
+    <div class="related-grid" id="relatedGrid"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="../js/lib2.js"></script>
+</body>
+</html>

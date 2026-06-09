@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giỏ hàng — ITBook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="../css/style3.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">IT<span>Book</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Trang chủ</a></li>
+    <li><a href="books.html">Sách</a></li>
+    <li><a href="categories.html">Danh mục</a></li>
+    <li><a href="resources.html">Tài nguyên</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">Giới thiệu</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-login" onclick="location.href='auth.html'">👤 Đăng nhập</button>
+      <button class="btn-cart" onclick="location.href='cart.html'">🛒 Giỏ hàng <span class="cart-count" id="cartCount">0</span></button>
+    <button class="btn-dark-toggle" id="themeToggle">☀️</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="../index.html">Trang chủ</a><span>/</span><span>Giỏ hàng</span>
+  </div>
+  <h1 class="page-title">Giỏ <em>hàng</em></h1>
+</div>
+
+<div class="cart-layout" id="cartLayout">
+
+  <!-- Items col -->
+  <div class="cart-items-col">
+    <div class="cart-toolbar">
+      <div class="cart-count-label">Có <strong id="itemCountLabel">0</strong> sách trong giỏ</div>
+      <button class="btn-clear-all" onclick="clearAll()">Xoá tất cả</button>
+    </div>
+    <div id="cartBody"></div>
+
+    <!-- Coupon -->
+    <div class="coupon-wrap" id="couponWrap" style="display:none">
+      <input class="coupon-input" type="text" id="couponInput" placeholder="Nhập mã giảm giá..." />
+      <button class="btn-apply-coupon" onclick="applyCoupon()">Áp dụng</button>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary-col" id="summaryCol" style="display:none">
+    <div class="summary-card">
+      <div class="summary-title">Tổng đơn hàng</div>
+      <div class="summary-rows">
+        <div class="summary-row"><span class="label">Tạm tính</span><span class="value" id="subtotalVal">0₫</span></div>
+        <div class="summary-row discount" id="discountRow" style="display:none"><span class="label">Tiết kiệm</span><span class="value" id="discountVal">-0₫</span></div>
+        <div class="summary-row" id="couponRow" style="display:none"><span class="label">Mã giảm giá</span><span class="value" style="color:#47ff78" id="couponVal">-0₫</span></div>
+        <div class="summary-row"><span class="label">Phí giao hàng</span><span class="value" style="color:#47ff78">Miễn phí 🎁</span></div>
+      </div>
+      <hr class="summary-divider" />
+      <div class="summary-total">
+        <span class="total-label">Tổng cộng</span>
+        <span class="total-value" id="totalVal">0₫</span>
+      </div>
+      <button class="btn-checkout" onclick="checkout()">Thanh toán ngay →</button>
+      <button class="btn-continue" onclick="location.href='books.html'">← Tiếp tục mua sắm</button>
+      <div class="secure-badges">
+        <span class="badge-item">🔒 Bảo mật SSL</span>
+        <span class="badge-item">✅ Hoàn tiền 7 ngày</span>
+        <span class="badge-item">📦 Ship miễn phí</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Suggested -->
+<div class="suggested-section" id="suggestedSection" style="display:none">
+  <div class="suggested-title">Có thể bạn cũng thích</div>
+  <div class="suggested-grid" id="suggestedGrid"></div>
+</div>
+
+<!-- Checkout modal -->
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal-box">
+    <div class="modal-icon">🎉</div>
+    <div class="modal-title">Đặt hàng thành công!</div>
+    <div class="modal-sub">Cảm ơn bạn đã mua sách tại ITBook. Đơn hàng của bạn sẽ được xử lý trong 24 giờ.<br><br>Mã đơn hàng: <strong id="orderCode" style="color:var(--accent)"></strong></div>
+    <div class="modal-btns">
+      <button class="btn-modal-ok" onclick="confirmOrder()">Tuyệt! Xem sách ngay</button>
+      <button class="btn-modal-cancel" onclick="closeModal()">Đóng</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="../js/lib3.js"></script>
+</body>
+</html>

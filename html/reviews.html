@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đánh giá sách — ITBook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="../css/style12.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">IT<span>Book</span></div>
+  <ul class="nav-links">
+    <li><a href="../index.html">Trang chủ</a></li>
+    <li><a href="books.html">Sách</a></li>
+    <li><a href="categories.html">Danh mục</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="resources.html">Tài nguyên</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-login" onclick="location.href='auth.html'">👤 Đăng nhập</button>
+      <button class="btn-cart" onclick="location.href='cart.html'">
+      🛒 Giỏ hàng <div class="cart-count" id="cartCount">0</div>
+    </button>
+    <button class="btn-dark-toggle" id="themeToggle">☀️</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="../index.html">Trang chủ</a> <span>›</span> <span class="cur">Đánh giá sách</span>
+  </div>
+  <h1 class="page-title">Đánh giá sách</h1>
+  <p class="page-sub">Nhận xét thực tế từ cộng đồng lập trình viên Việt Nam</p>
+</div>
+
+<div class="content">
+
+  <!-- STATS -->
+  <div class="stats-row fade-in">
+    <div class="stat-card"><div class="stat-number">1,248</div><div class="stat-label">Tổng đánh giá</div></div>
+    <div class="stat-card"><div class="stat-number">4.7</div><div class="stat-label">Điểm trung bình</div></div>
+    <div class="stat-card"><div class="stat-number">342</div><div class="stat-label">Người đánh giá</div></div>
+    <div class="stat-card"><div class="stat-number">98%</div><div class="stat-label">Hài lòng</div></div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filter-row">
+    <div class="filter-tabs" id="filterTabs">
+      <button class="tab-btn active" data-filter="all">Tất cả</button>
+      <button class="tab-btn" data-filter="5">⭐⭐⭐⭐⭐</button>
+      <button class="tab-btn" data-filter="4">⭐⭐⭐⭐</button>
+      <button class="tab-btn" data-filter="ai">AI & ML</button>
+      <button class="tab-btn" data-filter="web">Web Dev</button>
+      <button class="tab-btn" data-filter="python">Python</button>
+    </div>
+    <select class="sort-select" id="sortSelect">
+      <option value="recent">Mới nhất</option>
+      <option value="helpful">Hữu ích nhất</option>
+      <option value="rating">Đánh giá cao</option>
+    </select>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="section-label">Nhận xét</div>
+  <h2 class="section-title" style="margin-bottom:1.5rem">Từ cộng đồng ITBook</h2>
+
+  <div class="reviews-grid" id="reviewsGrid"></div>
+
+  <!-- WRITE REVIEW -->
+  <div class="write-review-box fade-in">
+    <div class="wr-title">✍️ Viết đánh giá của bạn</div>
+    <div class="wr-form">
+      <div class="form-group">
+        <label class="form-label">Họ tên</label>
+        <input type="text" class="form-input" placeholder="Tên của bạn" id="wrName" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Sách đánh giá</label>
+        <select class="form-select" id="wrBook">
+          <option value="">-- Chọn sách --</option>
+          <option>Deep Learning with Python</option>
+          <option>Clean Code</option>
+          <option>Python Crash Course</option>
+          <option>The Pragmatic Programmer</option>
+          <option>JavaScript: The Good Parts</option>
+          <option>Hands-On ML with Scikit-Learn</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Số sao</label>
+        <div class="star-picker" id="starPicker">
+          <span class="star-pick" data-star="1">⭐</span>
+          <span class="star-pick" data-star="2">⭐</span>
+          <span class="star-pick" data-star="3">⭐</span>
+          <span class="star-pick" data-star="4">⭐</span>
+          <span class="star-pick" data-star="5">⭐</span>
+        </div>
+      </div>
+      <div class="form-group wr-form-full">
+        <label class="form-label">Nội dung đánh giá</label>
+        <textarea class="form-textarea" placeholder="Chia sẻ trải nghiệm đọc sách của bạn..." id="wrContent"></textarea>
+      </div>
+      <div class="wr-form-full">
+        <button class="btn-submit-review" onclick="submitReview()">Gửi đánh giá →</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:0.7rem 1.5rem;border-radius:10px;font-size:0.88rem;opacity:0;transition:all 0.3s;z-index:200;pointer-events:none;"></div>
+
+<script src="../js/lib12.js"></script>
+</body>
+</html>

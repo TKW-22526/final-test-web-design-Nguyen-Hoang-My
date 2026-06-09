@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danh mục — ITBook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="../css/style9.css" rel="stylesheet" />
+  
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">IT<span>Book</span></a>
+  <ul class="nav-links">
+    <li><a href="books.html">Sách</a></li>
+    <li><a href="categories.html" class="active">Danh mục</a></li>
+    <li><a href="resources.html">Tài nguyên</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">Giới thiệu</a></li>
+    <li><a href="contact.html">Liên hệ</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-dark-toggle" id="themeToggle">☀️</button>
+    <button class="btn-login" onclick="location.href='auth.html'">👤 Đăng nhập</button>
+      <button class="btn-cart" onclick="location.href='cart.html'">🛒 Giỏ hàng <span class="cart-count" id="cartCount">0</span></button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="../index.html">Trang chủ</a> › <span class="cur">Danh mục</span></div>
+  <h1 class="page-title">Danh mục sách 🗂️</h1>
+  <p class="page-sub">Khám phá sách theo từng lĩnh vực chuyên ngành IT & Lập trình</p>
+</div>
+
+<div class="content">
+
+  <!-- CATEGORY HERO GRID -->
+  <div class="section-label">Tất cả danh mục</div>
+  <h2 class="section-title" style="margin-bottom:0.4rem">Chọn chủ đề bạn yêu thích</h2>
+  <p class="section-sub">Click vào danh mục để xem sách liên quan</p>
+
+  <div class="cat-hero-grid" id="catHeroGrid"></div>
+
+  <!-- BOOKS BY CATEGORY -->
+  <div id="booksByCat"></div>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="../js/lib9.js"></script>
+</body>
+</html>

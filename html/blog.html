@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — ITBook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="../css/style8.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">IT<span>Book</span></div>
+  <ul class="nav-links">
+    <li><a href="../index.html">Trang chủ</a></li>
+    <li><a href="books.html">Sách</a></li>
+    <li><a href="categories.html">Danh mục</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="resources.html">Tài nguyên</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-login" onclick="location.href='auth.html'">👤 Đăng nhập</button>
+      <button class="btn-cart" onclick="location.href='cart.html'">
+      🛒 Giỏ hàng <div class="cart-count" id="cartCount">0</div>
+    </button>
+    <button class="btn-dark-toggle" id="themeToggle">☀️</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="../index.html">Trang chủ</a> <span>›</span> <span class="cur">Blog</span>
+  </div>
+  <h1 class="page-title">Blog ITBook</h1>
+  <p class="page-sub">Kiến thức, kinh nghiệm và cẩm nang học lập trình từ cộng đồng</p>
+</div>
+
+<div class="content">
+
+  <!-- FEATURED -->
+  <div class="section-label">Nổi bật</div>
+  <h2 class="section-title" style="margin-bottom:2rem">Bài viết đặc sắc</h2>
+
+  <div class="featured-post fade-in" onclick="location.href='#'">
+    <div class="featured-cover" style="background:linear-gradient(135deg,#0d1b2e,#1a3050)">
+      <span class="cover-label">📌 Nổi bật</span>
+      🤖
+    </div>
+    <div class="featured-body">
+      <div class="post-meta">
+        <span class="post-tag">AI & ML</span>
+        <span class="post-date">15 tháng 5, 2025</span>
+        <span class="post-read">· 8 phút đọc</span>
+      </div>
+      <h2 class="featured-title">Lộ trình học AI năm 2025: Từ zero đến có thể xin việc</h2>
+      <p class="featured-excerpt">Bạn muốn bắt đầu học AI nhưng không biết bắt đầu từ đâu? Bài viết này sẽ dẫn bạn qua từng bước — từ toán học nền tảng, Python, đến các thư viện ML và framework deep learning phổ biến nhất hiện nay.</p>
+      <div class="post-author">
+        <div class="author-avatar">👨‍💻</div>
+        <span class="author-name">Minh Trí · Biên tập viên ITBook</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="filter-tabs" id="filterTabs">
+    <button class="tab-btn active" data-filter="all">Tất cả</button>
+    <button class="tab-btn" data-filter="ai">AI & ML</button>
+    <button class="tab-btn" data-filter="web">Lập trình Web</button>
+    <button class="tab-btn" data-filter="python">Python</button>
+    <button class="tab-btn" data-filter="data">Data Science</button>
+    <button class="tab-btn" data-filter="career">Sự nghiệp</button>
+    <button class="tab-btn" data-filter="review">Điểm sách</button>
+  </div>
+
+  <!-- GRID -->
+  <div class="blog-grid" id="blogGrid"></div>
+
+  <div class="load-more-wrap">
+    <button class="btn-load" onclick="loadMore()">Xem thêm bài viết →</button>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter-box fade-in">
+    <div class="newsletter-text">
+      <div class="nl-title">📬 Nhận bài viết mới mỗi tuần</div>
+      <div class="nl-sub">Không spam. Chỉ những bài chất lượng được tuyển chọn kỹ lưỡng.</div>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" class="nl-input" placeholder="email@example.com" id="nlEmail" />
+      <button class="btn-subscribe" onclick="subscribe()">Đăng ký</button>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:0.7rem 1.5rem;border-radius:10px;font-size:0.88rem;opacity:0;transition:all 0.3s;z-index:200;pointer-events:none;"></div>
+
+<script src="../js/lib8.js"></script>
+</body>
+</html>

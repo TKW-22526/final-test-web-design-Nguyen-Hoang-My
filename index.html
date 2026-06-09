@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ITBook — Sách & Tài nguyên Lập trình</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="css/style1.css" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="nav-logo">IT<span>Book</span></a>
+    <ul class="nav-links">
+      <li><a href="html/books.html">Sách</a></li>
+      <li><a href="html/categories.html">Danh mục</a></li>
+      <li><a href="html/resources.html">Tài nguyên</a></li>
+      <li><a href="html/blog.html">Blog</a></li>
+      <li><a href="html/about.html">Giới thiệu</a></li>
+      <li><a href="html/contact.html">Liên hệ</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-dark-toggle" id="themeToggle" title="Chuyển giao diện">☀️</button>
+      <button class="btn-login" onclick="location.href='html/auth.html'">👤 Đăng nhập</button>
+      <button class="btn-cart" onclick="location.href='html/cart.html'">
+        🛒 Giỏ hàng <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+
+    <div class="hero-left">
+      <div class="hero-badge">Nền tảng sách IT hàng đầu</div>
+      <h1 class="hero-title">
+        Tri thức<br><em>lập trình</em><br>trong tầm tay
+      </h1>
+      <p class="hero-sub">Khám phá hàng trăm cuốn sách về IT, AI, lập trình và công nghệ. Từ người mới bắt đầu đến chuyên gia — tất cả đều có chỗ ở đây.</p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="location.href='html/books.html'">Khám phá sách →</button>
+        <button class="btn-secondary" onclick="location.href='html/resources.html'">Tài nguyên miễn phí</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">500<span>+</span></div>
+          <div class="stat-label">Đầu sách</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">12<span>+</span></div>
+          <div class="stat-label">Danh mục</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">10k<span>+</span></div>
+          <div class="stat-label">Sinh viên</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="book-float">
+        <div class="book-cover" style="background: linear-gradient(135deg,#1a1a2e,#16213e);">🐍</div>
+        <div class="book-title-small">Python for AI</div>
+        <div class="book-author-small">François Chollet</div>
+        <div class="book-price-small">285.000₫</div>
+      </div>
+      <div class="book-float">
+        <div class="book-cover" style="background: linear-gradient(135deg,#0d1b2a,#1b4332);">⚡</div>
+        <div class="book-title-small">Clean Code</div>
+        <div class="book-author-small">Robert C. Martin</div>
+        <div class="book-price-small">199.000₫</div>
+      </div>
+      <div class="book-float">
+        <div class="book-cover" style="background: linear-gradient(135deg,#2d0036,#1a0533);">🌐</div>
+        <div class="book-title-small">JavaScript: The Good Parts</div>
+        <div class="book-author-small">Douglas Crockford</div>
+        <div class="book-price-small">175.000₫</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories fade-in">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Danh mục</div>
+        <h2 class="section-title">Tìm theo chủ đề</h2>
+      </div>
+      <a href="html/categories.html" class="link-all">Xem tất cả →</a>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card" onclick="filterBooks('ai')">
+        <div class="cat-icon">🤖</div>
+        <div class="cat-name">AI & Machine Learning</div>
+        <div class="cat-count">68 cuốn</div>
+      </div>
+      <div class="cat-card" onclick="filterBooks('web')">
+        <div class="cat-icon">🌐</div>
+        <div class="cat-name">Lập trình Web</div>
+        <div class="cat-count">92 cuốn</div>
+      </div>
+      <div class="cat-card" onclick="filterBooks('python')">
+        <div class="cat-icon">🐍</div>
+        <div class="cat-name">Python</div>
+        <div class="cat-count">54 cuốn</div>
+      </div>
+      <div class="cat-card" onclick="filterBooks('data')">
+        <div class="cat-icon">📊</div>
+        <div class="cat-name">Data Science</div>
+        <div class="cat-count">45 cuốn</div>
+      </div>
+      <div class="cat-card" onclick="filterBooks('network')">
+        <div class="cat-icon">🔒</div>
+        <div class="cat-name">An toàn mạng</div>
+        <div class="cat-count">38 cuốn</div>
+      </div>
+      <div class="cat-card" onclick="filterBooks('db')">
+        <div class="cat-icon">🗄️</div>
+        <div class="cat-name">Cơ sở dữ liệu</div>
+        <div class="cat-count">41 cuốn</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED BOOKS -->
+  <section class="fade-in">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Nổi bật</div>
+        <h2 class="section-title">Sách được yêu thích</h2>
+        <p class="section-sub">Tuyển chọn những cuốn sách bán chạy và được đánh giá cao nhất</p>
+      </div>
+      <a href="html/books.html" class="link-all">Xem tất cả →</a>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="search-wrap">
+      <input class="search-input" type="text" id="searchInput" placeholder="🔍  Tìm tên sách, tác giả..." oninput="searchBooks()" />
+      <select class="filter-select" id="filterSelect" onchange="searchBooks()">
+        <option value="all">Tất cả danh mục</option>
+        <option value="ai">AI & ML</option>
+        <option value="web">Lập trình Web</option>
+        <option value="python">Python</option>
+        <option value="data">Data Science</option>
+        <option value="network">Bảo mật</option>
+        <option value="db">Cơ sở dữ liệu</option>
+      </select>
+    </div>
+
+    <div class="books-grid" id="booksGrid"></div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section class="resources fade-in">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Tài nguyên</div>
+        <h2 class="section-title">Web học lập trình miễn phí</h2>
+        <p class="section-sub">Các nền tảng uy tín giúp bạn nâng cao kỹ năng coding</p>
+      </div>
+      <a href="html/resources.html" class="link-all">Xem tất cả →</a>
+    </div>
+    <div class="resource-grid" id="resourceGrid"></div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter fade-in">
+    <div class="newsletter-inner">
+      <div>
+        <div class="nl-title">Nhận sách mới mỗi tuần 📬</div>
+        <div class="nl-sub">Đăng ký để nhận thông báo sách mới, khuyến mãi và tài nguyên học tập miễn phí.</div>
+      </div>
+      <div class="nl-form">
+        <input class="nl-input" type="email" id="nlEmail" placeholder="email của bạn..." />
+        <button class="btn-primary" onclick="subscribeNewsletter()">Đăng ký</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">IT<span>Book</span></div>
+        <p class="footer-desc">Nền tảng sách IT và tài nguyên lập trình dành cho sinh viên và lập trình viên Việt Nam. Học tốt hơn với những cuốn sách được chọn lọc kỹ lưỡng.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Sách</div>
+        <ul class="footer-links">
+          <li><a href="html/books.html">Tất cả sách</a></li>
+          <li><a href="html/categories.html">Danh mục</a></li>
+          <li><a href="html/book-detail.html">Sách mới</a></li>
+          <li><a href="html/reviews.html">Đánh giá</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Học tập</div>
+        <ul class="footer-links">
+          <li><a href="html/resources.html">Tài nguyên miễn phí</a></li>
+          <li><a href="html/blog.html">Blog lập trình</a></li>
+          <li><a href="html/resources.html">Khóa học online</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Hỗ trợ</div>
+        <ul class="footer-links">
+          <li><a href="html/about.html">Giới thiệu</a></li>
+          <li><a href="html/contact.html">Liên hệ</a></li>
+          <li><a href="html/auth.html">Đăng nhập</a></li>
+          <li><a href="html/cart.html">Giỏ hàng</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 ITBook. Được xây dựng với ❤️ cho cộng đồng lập trình Việt Nam.</div>
+      <div class="footer-copy">Dự án kết thúc môn — Thiết kế Web</div>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div id="toast"></div>
+
+  <script src="js/lib1.js"></script>
+</body>
+</html>

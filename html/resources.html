@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tài nguyên học lập trình — ITBook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="../css/style11.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">IT<span>Book</span></a>
+  <ul class="nav-links">
+    <li><a href="books.html">Sách</a></li>
+    <li><a href="categories.html">Danh mục</a></li>
+    <li><a href="resources.html" class="active">Tài nguyên</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">Giới thiệu</a></li>
+    <li><a href="contact.html">Liên hệ</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-dark-toggle" id="themeToggle">☀️</button>
+    <button class="btn-login" onclick="location.href='auth.html'">👤 Đăng nhập</button>
+      <button class="btn-cart" onclick="location.href='cart.html'">🛒 Giỏ hàng <span class="cart-count" id="cartCount">0</span></button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="../index.html">Trang chủ</a> › <span class="cur">Tài nguyên</span></div>
+  <h1 class="page-title">Tài nguyên học lập trình 🎓</h1>
+  <p class="page-sub">Tổng hợp các website, khóa học và công cụ hỗ trợ học IT tốt nhất</p>
+</div>
+
+<div class="content">
+
+  <!-- FILTER TABS -->
+  <div class="filter-tabs" id="filterTabs">
+    <button class="tab-btn active" data-filter="all">🌐 Tất cả</button>
+    <button class="tab-btn" data-filter="free">🆓 Miễn phí</button>
+    <button class="tab-btn" data-filter="paid">💳 Có phí</button>
+    <button class="tab-btn" data-filter="tool">🛠️ Công cụ</button>
+  </div>
+
+  <!-- RESOURCE CARDS -->
+  <div class="resource-grid" id="resourceGrid"></div>
+
+  <!-- ROADMAPS -->
+  <div class="roadmap-section fade-in">
+    <div class="section-label">Lộ trình</div>
+    <h2 class="section-title">Học theo lộ trình rõ ràng</h2>
+    <p class="section-sub">Gợi ý thứ tự học từng kỹ năng theo vai trò trong ngành IT</p>
+    <div class="roadmap-grid" id="roadmapGrid"></div>
+  </div>
+
+</div>
+
+<script src="../js/lib11.js"></script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý — ITBook Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="../css/style6.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="sidebar-logo">IT<span>Book</span><small>Admin Panel</small></div>
+
+  <div class="sidebar-section">Tổng quan</div>
+  <div class="nav-item active" onclick="showPanel('dashboard',this)"><span class="icon">📊</span> Dashboard</div>
+  <div class="nav-item" onclick="showPanel('books',this)"><span class="icon">📚</span> Quản lý sách</div>
+
+  <div class="sidebar-section">Hệ thống</div>
+  <div class="nav-item" onclick="showPanel('categories',this)"><span class="icon">🗂️</span> Danh mục</div>
+  <div class="nav-item" onclick="showPanel('orders',this)"><span class="icon">🛒</span> Đơn hàng</div>
+
+  <div class="sidebar-footer">
+    <div class="admin-user">
+      <div class="admin-avatar">AD</div>
+      <div><div class="admin-name">Admin</div><div class="admin-role">Quản trị viên</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-title" id="topbarTitle">Dashboard</div>
+    <div class="topbar-actions">
+      <a href="../index.html" class="topbar-link">← Về trang chủ</a>
+      <button class="btn-primary" id="btnAddBook" onclick="openAddModal()" style="display:none">+ Thêm sách</button>
+    </div>
+  </div>
+
+  <!-- DASHBOARD PANEL -->
+  <div class="panel active" id="panel-dashboard">
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">Tổng sách</div>
+        <div class="stat-value" id="statTotal">0</div>
+        <div class="stat-change">📚 đầu sách</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Danh mục</div>
+        <div class="stat-value">6</div>
+        <div class="stat-change">🗂️ chủ đề</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Giá trung bình</div>
+        <div class="stat-value" id="statAvg">0₫</div>
+        <div class="stat-change">💰 mỗi cuốn</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Đơn hàng</div>
+        <div class="stat-value">127</div>
+        <div class="stat-change">↑ +12 hôm nay</div>
+      </div>
+    </div>
+
+    <div class="section-hd"><h2>📚 Sách mới nhất</h2><button class="btn-secondary" onclick="showPanel('books', document.querySelector('.nav-item:nth-child(3)'))">Xem tất cả</button></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Sách</th><th>Danh mục</th><th>Giá</th><th>Đánh giá</th></tr></thead>
+        <tbody id="dashRecentBooks"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- BOOKS PANEL -->
+  <div class="panel" id="panel-books">
+    <div class="table-wrap">
+      <div class="table-toolbar">
+        <input class="search-input" type="text" id="bookSearch" placeholder="🔍 Tìm tên sách, tác giả..." oninput="renderTable()" />
+        <select class="filter-sel" id="catFilter" onchange="renderTable()">
+          <option value="all">Tất cả danh mục</option>
+          <option value="ai">AI & ML</option>
+          <option value="web">Lập trình Web</option>
+          <option value="python">Python</option>
+          <option value="data">Data Science</option>
+          <option value="network">Bảo mật</option>
+          <option value="db">Cơ sở dữ liệu</option>
+        </select>
+        <select class="filter-sel" id="sortFilter" onchange="renderTable()">
+          <option value="default">Mặc định</option>
+          <option value="price-asc">Giá tăng dần</option>
+          <option value="price-desc">Giá giảm dần</option>
+          <option value="rating">Đánh giá cao</option>
+          <option value="name">Tên A-Z</option>
+        </select>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Sách</th>
+            <th>Danh mục</th>
+            <th>Giá bán</th>
+            <th>Giá gốc</th>
+            <th>Đánh giá</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody id="bookTable"></tbody>
+      </table>
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES PANEL -->
+  <div class="panel" id="panel-categories">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Danh mục</th><th>Số sách</th><th>Mô tả</th></tr></thead>
+        <tbody id="catTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ORDERS PANEL -->
+  <div class="panel" id="panel-orders">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Mã đơn</th><th>Sách</th><th>Số lượng</th><th>Tổng tiền</th><th>Trạng thái</th></tr></thead>
+        <tbody id="ordersTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- end .main -->
+
+<!-- ADD/EDIT MODAL -->
+<div class="modal-overlay" id="bookModal">
+  <div class="modal">
+    <div class="modal-title">
+      <span id="modalTitle">➕ Thêm sách mới</span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="form-grid">
+      <div class="form-group full">
+        <label class="form-label">Tên sách *</label>
+        <input class="form-input" id="fTitle" placeholder="Nhập tên sách..." />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tác giả *</label>
+        <input class="form-input" id="fAuthor" placeholder="Tên tác giả..." />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Danh mục *</label>
+        <select class="form-select" id="fCat">
+          <option value="ai">🤖 AI & ML</option>
+          <option value="web">🌐 Lập trình Web</option>
+          <option value="python">🐍 Python</option>
+          <option value="data">📊 Data Science</option>
+          <option value="network">🔒 Bảo mật</option>
+          <option value="db">🗄️ Cơ sở dữ liệu</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Giá bán (₫) *</label>
+        <input class="form-input" id="fPrice" type="number" placeholder="185000" min="0" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Giá gốc (₫)</label>
+        <input class="form-input" id="fOldPrice" type="number" placeholder="Để trống nếu không có" min="0" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Đánh giá (1-5)</label>
+        <input class="form-input" id="fRating" type="number" placeholder="4.5" min="1" max="5" step="0.1" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Số lượt đánh giá</label>
+        <input class="form-input" id="fReviews" type="number" placeholder="0" min="0" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Badge</label>
+        <select class="form-select" id="fBadge">
+          <option value="">Không có</option>
+          <option value="Mới">Mới</option>
+          <option value="Hot">Hot</option>
+          <option value="Bestseller">Bestseller</option>
+          <option value="Classic">Classic</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label class="form-label">Mô tả ngắn</label>
+        <textarea class="form-textarea" id="fDesc" placeholder="Mô tả nội dung sách..."></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal()">Hủy</button>
+      <button class="btn-save" onclick="saveBook()">💾 Lưu sách</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM DELETE -->
+<div class="modal-overlay" id="confirmModal">
+  <div class="modal confirm-modal">
+    <div class="confirm-icon">🗑️</div>
+    <div class="modal-title" style="justify-content:center">Xác nhận xóa</div>
+    <div class="confirm-text" id="confirmText">Bạn có chắc muốn xóa sách này không? Hành động này không thể hoàn tác.</div>
+    <div class="modal-footer" style="justify-content:center">
+      <button class="btn-cancel" onclick="closeConfirm()">Hủy</button>
+      <button class="btn-save" style="background:var(--red)" onclick="confirmDelete()">🗑️ Xóa</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="../js/lib6.js"></script>
+</body>
+</html>

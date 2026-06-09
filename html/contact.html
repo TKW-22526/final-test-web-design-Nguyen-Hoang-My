@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liên hệ — ITBook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="../css/style10.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">IT<span>Book</span></div>
+  <ul class="nav-links">
+    <li><a href="../index.html">Trang chủ</a></li>
+    <li><a href="books.html">Sách</a></li>
+    <li><a href="categories.html">Danh mục</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="active">Liên hệ</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-login" onclick="location.href='auth.html'">👤 Đăng nhập</button>
+      <button class="btn-cart" onclick="location.href='cart.html'">
+      🛒 Giỏ hàng <div class="cart-count" id="cartCount">0</div>
+    </button>
+    <button class="btn-dark-toggle" id="themeToggle">☀️</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="../index.html">Trang chủ</a> <span>›</span> <span class="cur">Liên hệ</span>
+  </div>
+  <h1 class="page-title">Liên hệ với chúng tôi</h1>
+  <p class="page-sub">Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn</p>
+</div>
+
+<div class="content">
+
+  <div class="contact-layout fade-in">
+
+    <!-- INFO -->
+    <div class="contact-info">
+      <p class="info-intro">Bạn có câu hỏi về đơn hàng, cần hỗ trợ kỹ thuật, hay muốn hợp tác? Đội ngũ ITBook sẵn sàng phản hồi trong vòng 24 giờ làm việc.</p>
+
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="cc-icon">📧</div>
+          <div>
+            <div class="cc-label">Email</div>
+            <div class="cc-value">support@itbook.vn</div>
+            <div class="cc-hint">Phản hồi trong 24h làm việc</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">💬</div>
+          <div>
+            <div class="cc-label">Zalo / Messenger</div>
+            <div class="cc-value">0392 698 374</div>
+            <div class="cc-hint">T2–T7: 8:00 – 22:00</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">📍</div>
+          <div>
+            <div class="cc-label">Địa chỉ</div>
+            <div class="cc-value">Huyện Càng Long, TP. TRÀ VINH</div>
+            <div class="cc-hint">Đặt lịch hẹn trước khi đến</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon">⏱️</div>
+          <div>
+            <div class="cc-label">Giờ làm việc</div>
+            <div class="cc-value">T2 – T7: 8:00 – 18:00</div>
+            <div class="cc-hint">Chủ nhật: nghỉ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-links">
+        <div class="social-btn" title="Facebook">📘</div>
+        <div class="social-btn" title="Zalo">💬</div>
+        <div class="social-btn" title="GitHub">🐱</div>
+        <div class="social-btn" title="YouTube">▶️</div>
+        <div class="social-btn" title="Discord">🎮</div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="contact-form-box">
+      <div class="cf-title">✉️ Gửi tin nhắn</div>
+
+      <div class="form-row form-group">
+        <div>
+          <label class="form-label">Họ tên</label>
+          <input type="text" class="form-input" placeholder="Tên của bạn" id="cfName" />
+        </div>
+        <div>
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="email@example.com" id="cfEmail" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Chủ đề</label>
+        <div class="subject-chips" id="subjectChips">
+          <div class="subject-chip" data-val="order">🛒 Đơn hàng</div>
+          <div class="subject-chip" data-val="payment">💳 Thanh toán</div>
+          <div class="subject-chip" data-val="tech">🔧 Kỹ thuật</div>
+          <div class="subject-chip" data-val="partner">🤝 Hợp tác</div>
+          <div class="subject-chip" data-val="suggest">💡 Góp ý</div>
+          <div class="subject-chip" data-val="other">📌 Khác</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Nội dung</label>
+        <textarea class="form-textarea" placeholder="Mô tả vấn đề bạn gặp phải hoặc câu hỏi bạn muốn hỏi..." id="cfMessage"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Số điện thoại (tùy chọn)</label>
+        <input type="tel" class="form-input" placeholder="0909 xxx xxx" id="cfPhone" />
+      </div>
+
+      <button class="btn-send" onclick="sendMessage()">Gửi tin nhắn →</button>
+    </div>
+
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section fade-in">
+    <div class="section-label">Câu hỏi thường gặp</div>
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">Sách có bản PDF không?</div>
+        <div class="faq-a">Hiện tại ITBook chỉ bán sách bản in chất lượng cao. Chúng tôi đang phát triển thêm ebook và sẽ thông báo khi có.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Thời gian giao hàng bao lâu?</div>
+        <div class="faq-a">Nội thành TP.HCM và Hà Nội: 1–2 ngày. Các tỉnh thành khác: 3–5 ngày làm việc qua đối tác vận chuyển uy tín.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Có thể đổi trả sách không?</div>
+        <div class="faq-a">Chúng tôi hỗ trợ đổi trả trong 7 ngày nếu sách bị lỗi in hoặc hư hỏng trong quá trình vận chuyển. Vui lòng chụp ảnh và liên hệ support.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Phương thức thanh toán nào được hỗ trợ?</div>
+        <div class="faq-a">Chúng tôi nhận: COD (thanh toán khi nhận hàng), chuyển khoản ngân hàng, Momo, ZaloPay và các ví điện tử phổ biến.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Có chính sách giảm giá cho học sinh/sinh viên không?</div>
+        <div class="faq-a">Có! Sinh viên được giảm 15% khi xuất trình thẻ sinh viên hợp lệ. Liên hệ qua email với ảnh thẻ sinh viên để nhận mã giảm giá.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Muốn đề xuất sách mới?</div>
+        <div class="faq-a">Rất vui được nghe! Hãy gửi tên sách và tác giả qua form liên hệ hoặc email. Đội ngũ sẽ cân nhắc bổ sung vào danh mục sớm nhất.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="toast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:0.7rem 1.5rem;border-radius:10px;font-size:0.88rem;opacity:0;transition:all 0.3s;z-index:200;pointer-events:none;"></div>
+
+<script src="../js/lib10.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng nhập / Đăng ký — ITBook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="../css/style7.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="bg-glow"><div class="glow1"></div><div class="glow2"></div></div>
+
+<nav>
+  <a class="nav-logo" href="../index.html">IT<span>Book</span></a>
+  <button class="btn-dark-toggle" id="themeToggle">☀️</button>
+</nav>
+
+<div class="auth-wrapper">
+  <div class="auth-box">
+
+    <div class="auth-tabs">
+      <div class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Đăng nhập</div>
+      <div class="auth-tab" id="tabRegister" onclick="switchTab('register')">Đăng ký</div>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div class="auth-card" id="loginForm">
+      <div class="auth-title">Chào mừng trở lại 👋</div>
+      <div class="auth-subtitle">Đăng nhập để tiếp tục học tập</div>
+
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <div class="input-with-icon">
+          <span class="input-icon">📧</span>
+          <input type="email" class="form-input" placeholder="email@example.com" id="loginEmail" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Mật khẩu</label>
+        <div class="input-with-icon">
+          <span class="input-icon">🔒</span>
+          <input type="password" class="form-input" placeholder="Mật khẩu của bạn" id="loginPwd" />
+          <span class="input-toggle" onclick="togglePwd('loginPwd',this)">👁️</span>
+        </div>
+        <a href="#" class="forgot-link">Quên mật khẩu?</a>
+      </div>
+
+      <button class="btn-auth" onclick="handleLogin()">Đăng nhập →</button>
+
+      <div class="divider"><span class="divider-text">hoặc tiếp tục với</span></div>
+
+      <div class="social-btns">
+        <button class="btn-social">🌐 Google</button>
+        <button class="btn-social">🐱 GitHub</button>
+      </div>
+
+      <div class="auth-switch">Chưa có tài khoản? <a href="#" onclick="switchTab('register');return false;">Đăng ký ngay</a></div>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div class="auth-card" id="registerForm" style="display:none">
+      <div class="auth-title">Tạo tài khoản 🚀</div>
+      <div class="auth-subtitle">Tham gia cộng đồng ITBook ngay hôm nay</div>
+
+      <div class="form-group form-row">
+        <div>
+          <label class="form-label">Họ</label>
+          <input type="text" class="form-input" placeholder="Nguyễn" id="regFirst" />
+        </div>
+        <div>
+          <label class="form-label">Tên</label>
+          <input type="text" class="form-input" placeholder="Văn A" id="regLast" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <div class="input-with-icon">
+          <span class="input-icon">📧</span>
+          <input type="email" class="form-input" placeholder="email@example.com" id="regEmail" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Mật khẩu</label>
+        <div class="input-with-icon">
+          <span class="input-icon">🔒</span>
+          <input type="password" class="form-input" placeholder="Tối thiểu 8 ký tự" id="regPwd" oninput="checkStrength(this.value)" />
+          <span class="input-toggle" onclick="togglePwd('regPwd',this)">👁️</span>
+        </div>
+        <div class="pwd-strength">
+          <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+          <span class="strength-text" id="strengthText"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Nhắc lại mật khẩu</label>
+        <div class="input-with-icon">
+          <span class="input-icon">🔒</span>
+          <input type="password" class="form-input" placeholder="Nhập lại mật khẩu" id="regPwd2" />
+        </div>
+      </div>
+
+      <div class="terms-check">
+        <input type="checkbox" id="agreeTerms" />
+        <label class="terms-text" for="agreeTerms">Tôi đồng ý với <a href="#">Điều khoản dịch vụ</a> và <a href="#">Chính sách bảo mật</a> của ITBook.</label>
+      </div>
+
+      <button class="btn-auth" onclick="handleRegister()">Tạo tài khoản →</button>
+
+      <div class="divider"><span class="divider-text">hoặc tiếp tục với</span></div>
+      <div class="social-btns">
+        <button class="btn-social">🌐 Google</button>
+        <button class="btn-social">🐱 GitHub</button>
+      </div>
+
+      <div class="auth-switch">Đã có tài khoản? <a href="#" onclick="switchTab('login');return false;">Đăng nhập</a></div>
+    </div>
+
+    <div class="benefits-row">
+      <div class="benefit-chip">✅ Miễn phí đăng ký</div>
+      <div class="benefit-chip">📚 Lịch sử mua hàng</div>
+      <div class="benefit-chip">🔔 Thông báo sách mới</div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:0.7rem 1.5rem;border-radius:10px;font-size:0.88rem;opacity:0;transition:all 0.3s;z-index:200;pointer-events:none;"></div>
+
+<script src="../js/lib7.js"></script>
+</body>
+</html>
