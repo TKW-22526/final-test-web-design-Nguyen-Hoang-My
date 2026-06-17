@@ -17,6 +17,13 @@
     document.getElementById('itemCountLabel').textContent = total;
   }
 
+
+  function normalizeImg(img) {
+    if (!img) return '';
+    // If path starts with "assets/" (from index.html), prefix with "../"
+    if (img.startsWith('assets/')) return '../' + img;
+    return img;
+  }
   function renderCart() {
     updateCartCount();
     const body = document.getElementById('cartBody');
@@ -41,7 +48,7 @@
 
     body.innerHTML = cart.map((item, idx) => `
       <div class="cart-item" id="item-${item.id}" style="animation-delay:${idx*0.07}s">
-        <div class="item-cover" style="background:${item.bg}">${item.img ? `<img src="${item.img}" alt="${item.title}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block;">` : item.icon}</div>
+        <div class="item-cover" style="background:${item.bg}">${item.img ? `<img src="${normalizeImg(item.img)}" alt="${item.title}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block;">` : item.icon}</div>
         <div class="item-info">
           <div class="item-cat">${item.cat || 'IT'}</div>
           <div class="item-title">${item.title}</div>
@@ -132,7 +139,7 @@
   function renderSuggested() {
     document.getElementById('suggestedGrid').innerHTML = SUGGESTED.map(b=>`
       <div class="sugg-card" onclick="location.href='book-detail.html?id=${b.id}'">
-        <div class="sugg-cover" style="background:${b.bg}">${b.img ? `<img src="${b.img}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block;">` : b.icon}</div>
+        <div class="sugg-cover" style="background:${b.bg}">${b.img ? `<img src="${normalizeImg(b.img)}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block;">` : b.icon}</div>
         <div class="sugg-info">
           <div class="sugg-title">${b.title}</div>
           <div class="sugg-price">${b.price.toLocaleString('vi-VN')}₫</div>
@@ -158,16 +165,16 @@
 
   // ── THEME INIT ──
   (function() {
-    if (localStorage.getItem('itbook_theme') === 'light') {
-      document.body.classList.add('light');
+    if (localStorage.getItem('itbook_theme') === 'dark') {
+      document.body.classList.add('dark');
       var btn = document.getElementById('themeToggle');
       if (btn) btn.textContent = '🌙';
     }
   })();
   document.getElementById('themeToggle').addEventListener('click', function() {
-    document.body.classList.toggle('light');
-    this.textContent = document.body.classList.contains('light') ? '🌙' : '☀️';
-    localStorage.setItem('itbook_theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    document.body.classList.toggle('dark');
+    this.textContent = document.body.classList.contains('dark') ? '🌙' : '☀️';
+    localStorage.setItem('itbook_theme', document.body.classList.contains('dark') ? 'dark' : 'light');
   });
 
   // Coupon input enter

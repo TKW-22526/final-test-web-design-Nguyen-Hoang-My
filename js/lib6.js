@@ -1,7 +1,7 @@
   // ── THEME INIT ──
   (function() {
-    if (localStorage.getItem('itbook_theme') === 'light') {
-      document.body.classList.add('light');
+    if (localStorage.getItem('itbook_theme') === 'dark') {
+      document.body.classList.add('dark');
     }
   })();
 

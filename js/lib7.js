@@ -62,14 +62,14 @@
 
   // ── THEME INIT ──
   (function() {
-    if (localStorage.getItem('itbook_theme') === 'light') {
-      document.body.classList.add('light');
+    if (localStorage.getItem('itbook_theme') === 'dark') {
+      document.body.classList.add('dark');
       var btn = document.getElementById('themeToggle');
       if (btn) btn.textContent = '🌙';
     }
   })();
   document.getElementById('themeToggle').addEventListener('click', function() {
-    document.body.classList.toggle('light');
-    this.textContent = document.body.classList.contains('light') ? '🌙' : '☀️';
-    localStorage.setItem('itbook_theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    document.body.classList.toggle('dark');
+    this.textContent = document.body.classList.contains('dark') ? '🌙' : '☀️';
+    localStorage.setItem('itbook_theme', document.body.classList.contains('dark') ? 'dark' : 'light');
   });

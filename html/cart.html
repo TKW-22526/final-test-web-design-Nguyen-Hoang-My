@@ -22,7 +22,7 @@
   <div class="nav-actions">
     <button class="btn-login" onclick="location.href='auth.html'">👤 Đăng nhập</button>
       <button class="btn-cart" onclick="location.href='cart.html'">🛒 Giỏ hàng <span class="cart-count" id="cartCount">0</span></button>
-    <button class="btn-dark-toggle" id="themeToggle">☀️</button>
+    <button class="btn-dark-toggle" id="themeToggle">🌙</button>
   </div>
 </nav>
 
@@ -30,7 +30,7 @@
   <div class="breadcrumb">
     <a href="../index.html">Trang chủ</a><span>/</span><span>Giỏ hàng</span>
   </div>
-  <h1 class="page-title">Giỏ <em>hàng</em></h1>
+  <h1 class="page-title">Giỏ <span class="title-accent">hàng</span></h1>
 </div>
 
 <div class="cart-layout" id="cartLayout">
@@ -57,8 +57,8 @@
       <div class="summary-rows">
         <div class="summary-row"><span class="label">Tạm tính</span><span class="value" id="subtotalVal">0₫</span></div>
         <div class="summary-row discount" id="discountRow" style="display:none"><span class="label">Tiết kiệm</span><span class="value" id="discountVal">-0₫</span></div>
-        <div class="summary-row" id="couponRow" style="display:none"><span class="label">Mã giảm giá</span><span class="value" style="color:#47ff78" id="couponVal">-0₫</span></div>
-        <div class="summary-row"><span class="label">Phí giao hàng</span><span class="value" style="color:#47ff78">Miễn phí 🎁</span></div>
+        <div class="summary-row" id="couponRow" style="display:none"><span class="label">Mã giảm giá</span><span class="value" style="color:#16a34a" id="couponVal">-0₫</span></div>
+        <div class="summary-row"><span class="label">Phí giao hàng</span><span class="value" style="color:#16a34a">Miễn phí 🎁</span></div>
       </div>
       <hr class="summary-divider" />
       <div class="summary-total">

@@ -118,8 +118,8 @@
 
     // ── THEME INIT ──
     (function() {
-        if (localStorage.getItem('itbook_theme') === 'light') {
-            document.body.classList.add('light');
+        if (localStorage.getItem('itbook_theme') === 'dark') {
+            document.body.classList.add('dark');
             var btn = document.getElementById('themeToggle');
             if (btn) btn.textContent = '🌙';
         }
@@ -127,9 +127,9 @@
     // ── THEME TOGGLE ──
     const toggleBtn = document.getElementById('themeToggle');
     toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('light');
-      toggleBtn.textContent = document.body.classList.contains('light') ? '🌙' : '☀️';
-      localStorage.setItem('itbook_theme', document.body.classList.contains('light') ? 'light' : 'dark');
+      document.body.classList.toggle('dark');
+      toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+      localStorage.setItem('itbook_theme', document.body.classList.contains('dark') ? 'dark' : 'light');
     });
 
     // ── SCROLL ANIMATION ──

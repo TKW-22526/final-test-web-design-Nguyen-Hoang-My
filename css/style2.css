@@ -1,10 +1,20 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg:#0a0a0f; --bg2:#111118; --bg3:#16161f; --border:rgba(255,255,255,0.07);
-      --accent:#e8ff47; --accent2:#47c5ff; --text:#e8e8f0; --muted:#7070a0;
-      --card-bg:#13131c; --font-head:'Syne',sans-serif; --font-body:'DM Sans',sans-serif;
+      --bg: #f5f5f0; --bg2: #ebebе6; --bg3: #dededа; --border: rgba(0,0,0,0.10);
+      --accent: #4f6ef7; --accent2: #0ea5e9; --text: #111118; --muted: #666680;
+      --card-bg: #ffffff; --font-head:'Syne',sans-serif; --font-body:'DM Sans',sans-serif;
     }
-    body.light { --bg:#f4f4f0; --bg2:#ebebе6; --bg3:#e0e0db; --border:rgba(0,0,0,0.08); --text:#111118; --muted:#6060a0; --card-bg:#fafaf8; --accent:#a08800; --accent2:#0077bb; }
+    body.dark {
+      --bg:      #0d0d14;
+      --bg2:     #12121a;
+      --bg3:     #1a1a26;
+      --border:  rgba(255,255,255,0.09);
+      --text:    #f0f0f8;
+      --muted:   #8888aa;
+      --card-bg: #16161f;
+      --accent:  #e8ff47;
+      --accent2: #47c5ff;
+    }
     html { scroll-behavior: smooth; }
     body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:15px; line-height:1.6; overflow-x:hidden; }
     a { text-decoration:none; color:inherit; }
@@ -15,9 +25,9 @@
     }
 
     /* NAVBAR */
-    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 5%; height:64px; background:rgba(10,10,15,0.85); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 5%; height:64px; background:rgba(245,245,240,0.92); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
     .nav-logo { font-family:var(--font-head); font-size:1.4rem; font-weight:800; letter-spacing:-0.5px; }
-    .nav-logo span { color:var(--accent); }
+    .nav-logo span { color: var(--text); }
     .nav-links { display:flex; gap:2rem; list-style:none; }
     .nav-links a { font-size:0.88rem; font-weight:500; color:var(--muted); transition:color 0.2s; }
     .nav-links a:hover { color:var(--text); }
@@ -143,7 +153,7 @@
     .stock-badge {
       display:inline-flex; align-items:center; gap:0.4rem;
       background:rgba(71,255,120,0.08); border:1px solid rgba(71,255,120,0.2);
-      color:#47ff78; font-size:0.8rem; padding:0.3rem 0.8rem; border-radius:100px;
+      color:#16a34a; font-size:0.8rem; padding:0.3rem 0.8rem; border-radius:100px;
     }
     .stock-dot { width:6px; height:6px; background:#47ff78; border-radius:50%; animation:blink 1.5s infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
@@ -252,7 +262,7 @@
     .user-avatar:hover { transform: scale(1.08); box-shadow: 0 0 0 3px rgba(232,255,71,0.3); }
     .user-menu {
       position: absolute; top: calc(100% + 10px); right: 0;
-      background: var(--card-bg, #13131c); border: 1px solid var(--border);
+      background: var(--card-bg, #ffffff); border: 1px solid var(--border);
       border-radius: 14px; padding: 0.6rem; min-width: 200px;
       box-shadow: 0 16px 40px rgba(0,0,0,0.4);
       z-index: 999; animation: fadeDown 0.18s ease;
@@ -263,10 +273,10 @@
     .user-menu-divider { border: none; border-top: 1px solid var(--border); margin: 0.3rem 0; }
     .user-menu-item {
       display: block; padding: 0.5rem 0.8rem; border-radius: 8px;
-      font-size: 0.85rem; color: var(--text, #e8e8f0); text-decoration: none;
+      font-size: 0.85rem; color: var(--text, #111118); text-decoration: none;
       transition: background 0.15s;
     }
-    .user-menu-item:hover { background: var(--bg3, #16161f); }
+    .user-menu-item:hover { background: var(--bg3, #ddddd8); }
     .user-menu-logout {
       width: 100%; text-align: left; background: none; border: none;
       padding: 0.5rem 0.8rem; border-radius: 8px; font-size: 0.85rem;
@@ -274,3 +284,13 @@
       font-family: inherit;
     }
     .user-menu-logout:hover { background: rgba(255,107,107,0.1); }
+
+    /* ── LOGO FIX ── */
+    .nav-logo { color: var(--accent); }
+    .nav-logo span { color: var(--text); }
+    body.dark .nav-logo { color: var(--accent); }
+    body.dark .nav-logo span { color: var(--text); }
+
+    body.dark nav { background: rgba(13,13,20,0.92); border-bottom-color: rgba(255,255,255,0.09); }
+    body.dark .book-float { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+    .title-accent { color: var(--accent); font-style: normal; }
